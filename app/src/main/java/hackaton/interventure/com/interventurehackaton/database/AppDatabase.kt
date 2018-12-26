@@ -27,6 +27,8 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun imageDao(): ImageDao
 
+    abstract fun videoDao(): VideoDao
+
     companion object {
         @JvmField
         val MIGRATION_1_2: Migration = object : Migration(1, 2) {
