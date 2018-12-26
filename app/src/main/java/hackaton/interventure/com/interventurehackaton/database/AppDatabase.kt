@@ -8,8 +8,11 @@ import android.arch.persistence.room.migration.Migration
 import android.content.Context
 import hackaton.interventure.com.interventurehackaton.database.dao.IsonDao
 import hackaton.interventure.com.interventurehackaton.database.entity.*
-import java.io.File
-import java.io.FileOutputStream
+import java.io.*
+import java.net.HttpURLConnection
+import java.net.HttpURLConnection.HTTP_OK
+import java.net.URL
+
 
 @Database(entities = [Events::class, Face::class, Image::class, Ison::class, Team::class, Video::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
@@ -30,9 +33,10 @@ abstract class AppDatabase : RoomDatabase() {
         fun getAppDataBase(context: Context): AppDatabase? {
             if (INSTANCE == null) {
                 synchronized(AppDatabase::class) {
-                    installDatabaseFromAssets(context)
+//                    installDatabaseFromAssets(context)
                     INSTANCE = Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
                         .addMigrations(MIGRATION_1_2)
+                        .allowMainThreadQueries()
                         .build()
                 }
             }
@@ -63,6 +67,4 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
     }
-
-
 }
