@@ -1,4 +1,4 @@
-package com.interventure.hackathontv.database
+package hackaton.interventure.com.interventurehackaton.database
 
 import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Database
@@ -6,8 +6,8 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.migration.Migration
 import android.content.Context
-import com.interventure.hackathontv.database.dao.IsonDao
-import com.interventure.hackathontv.database.entity.*
+import hackaton.interventure.com.interventurehackaton.database.dao.IsonDao
+import hackaton.interventure.com.interventurehackaton.database.entity.*
 import java.io.File
 import java.io.FileOutputStream
 

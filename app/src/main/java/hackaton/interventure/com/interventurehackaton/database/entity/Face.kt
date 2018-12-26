@@ -1,4 +1,4 @@
-package com.interventure.hackathontv.database.entity
+package hackaton.interventure.com.interventurehackaton.database.entity
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
