@@ -2,12 +2,13 @@ package hackaton.interventure.com.interventurehackaton
 
 import java.io.Serializable
 
-class ItemData(
+data class ItemData(
     var id: Int = 0,
     var name: String? = null,
     var desc: String? = null,
     var image: String? = null,
-    var background: String? = null
+    var background: String? = null,
+    val videoUrl: String? = null
 ) : Serializable {
 
     override fun toString(): String {

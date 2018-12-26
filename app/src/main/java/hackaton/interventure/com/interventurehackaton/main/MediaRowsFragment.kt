@@ -59,6 +59,11 @@ abstract class MediaRowsFragment : RowsSupportFragment() {
         adapter = mRowsAdapter
     }
 
+    override fun onResume() {
+        super.onResume()
+        startBackgroundTimer()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy: " + mBackgroundTimer?.toString())

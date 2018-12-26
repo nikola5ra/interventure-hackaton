@@ -10,11 +10,12 @@ import hackaton.interventure.com.interventurehackaton.ItemData
 import hackaton.interventure.com.interventurehackaton.R
 import hackaton.interventure.com.interventurehackaton.database.AppDatabase
 import hackaton.interventure.com.interventurehackaton.detail.DetailsFragment
+import hackaton.interventure.com.interventurehackaton.detail.people.PeopleDetailActivity
 
 class TeamDetailFragment : DetailsFragment() {
 
     override fun getDetailActivityIntent(): Intent {
-        return Intent(activity, TeamDetailActivity::class.java)
+        return Intent(activity, PeopleDetailActivity::class.java)
     }
 
     override fun setupRelatedListRow() {

@@ -30,6 +30,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import hackaton.interventure.com.interventurehackaton.*
+import hackaton.interventure.com.interventurehackaton.detail.people.PeopleDetailActivity
 import hackaton.interventure.com.interventurehackaton.main.MainActivity
 import hackaton.interventure.com.interventurehackaton.util.GlideUtil
 
@@ -160,7 +161,7 @@ abstract class DetailsFragment : DetailsSupportFragment() {
         detailsPresenter.onActionClickedListener = OnActionClickedListener { action ->
             if (action.id == ACTION_WATCH) {
                 val intent = Intent(activity, PlaybackActivity::class.java)
-                intent.putExtra(DetailsActivity.MOVIE, mSelected)
+                intent.putExtra(DetailsActivity.ITEM_DATA, mSelected)
                 startActivity(intent)
             } else {
                 Toast.makeText(activity, action.toString(), Toast.LENGTH_SHORT).show()
@@ -181,10 +182,10 @@ abstract class DetailsFragment : DetailsSupportFragment() {
             rowViewHolder: RowPresenter.ViewHolder,
             row: Row
         ) {
-            if (item is Movie) {
+            if (item is ItemData) {
                 Log.d(TAG, "Item: " + item.toString())
-                val intent = getDetailActivityIntent()
-                intent.putExtra(resources.getString(R.string.movie), mSelected)
+                val intent = Intent(activity, PeopleDetailActivity::class.java)
+                intent.putExtra(DetailsActivity.ITEM_DATA, item)
 
                 activity?.let { activity ->
                     val bundle =
@@ -204,12 +205,8 @@ abstract class DetailsFragment : DetailsSupportFragment() {
         private const val TAG = "DetailsFragment"
 
         private const val ACTION_WATCH = 1L
-        private const val ACTION_RENT = 2L
-        private const val ACTION_BUY = 3L
 
         private const val DETAIL_THUMB_WIDTH = 274
         private const val DETAIL_THUMB_HEIGHT = 274
-
-        private const val NUM_COLS = 10
     }
 }

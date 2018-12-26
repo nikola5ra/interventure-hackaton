@@ -24,6 +24,5 @@ abstract class DetailsActivity : FragmentActivity() {
     companion object {
         const val SHARED_ELEMENT_NAME = "hero"
         const val ITEM_DATA = "itemData"
-        const val MOVIE = "Movie"
     }
 }

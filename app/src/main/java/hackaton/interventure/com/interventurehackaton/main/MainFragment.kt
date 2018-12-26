@@ -135,24 +135,10 @@ class MainFragment : BrowseSupportFragment() {
     }
 
     private fun setupEventListeners() {
-        setOnSearchClickedListener {
-            Toast.makeText(activity, "Implement your own in-app search", Toast.LENGTH_LONG)
-                .show()
-        }
-
-        onItemViewSelectedListener = ItemViewSelectedListener()
-    }
-
-    private inner class ItemViewSelectedListener : OnItemViewSelectedListener {
-        override fun onItemSelected(
-            itemViewHolder: Presenter.ViewHolder?, item: Any?,
-            rowViewHolder: RowPresenter.ViewHolder, row: Row
-        ) {
-            if (item is Movie) {
-                mBackgroundUri = item.backgroundImageUrl
-                startBackgroundTimer()
-            }
-        }
+//        setOnSearchClickedListener {
+//            Toast.makeText(activity, "Implement your own in-app search", Toast.LENGTH_LONG)
+//                .show()
+//        }
     }
 
     private fun updateBackground(uri: String?) {
