@@ -12,10 +12,11 @@
  * the License.
  */
 
-package hackaton.interventure.com.interventurehackaton
+package hackaton.interventure.com.interventurehackaton.main
 
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
+import hackaton.interventure.com.interventurehackaton.R
 
 /**
  * Loads [MainFragment].
