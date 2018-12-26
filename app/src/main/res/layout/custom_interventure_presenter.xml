@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="840dp"
+                android:layout_height="460dp">
+
+    <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/interventure_desc"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"/>
+
+    <TextView
+            android:id="@+id/specialties"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text1"
+            android:layout_marginTop="16dp"
+            android:layout_alignParentStart="true"
+            android:text="Specialties"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text1"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@id/specialties"
+            android:text="Software Engineering, Java, .Net, C#, C++, iOS, Android, Python, PHP, Data Science, Gaming, JavaScript, Nearshoring, Remote Teams, Outsourcing, Online Marketplaces, Digital Transformation, and Multimedia Entertainment"/>
+
+    <TextView
+            android:id="@+id/company_size"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text2"
+            android:layout_marginTop="16dp"
+            android:layout_alignParentStart="true"
+            android:text="Company size"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text2"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@id/company_size"
+            android:layout_alignBottom="@id/company_size"
+            android:text="51-200 employees"/>
+
+    <TextView
+            android:id="@+id/headquarters"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text3"
+            android:layout_marginTop="16dp"
+            android:layout_alignParentStart="true"
+            android:text="Headquarters"
+            android:textStyle="bold"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@id/text3"
+              android:layout_marginTop="16dp"
+              android:layout_toRightOf="@id/headquarters"
+              android:layout_alignBottom="@id/headquarters"
+              android:text="Belgrade, Zvezdara"/>
+
+    <ImageView android:layout_width="200dp"
+               android:layout_height="200dp"
+               android:layout_alignParentEnd="true"
+               android:layout_alignParentBottom="true"
+               android:src="@drawable/interventure_map"
+               android:layout_marginEnd="24dp"
+               android:layout_marginBottom="24dp"/>
+
+</RelativeLayout>
