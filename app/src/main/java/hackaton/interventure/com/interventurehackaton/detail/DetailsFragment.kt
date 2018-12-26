@@ -92,7 +92,7 @@ abstract class DetailsFragment : DetailsSupportFragment() {
                         Handler().postDelayed({
                             mDetailsBackground.coverBitmap = bitmap
                             mAdapter.notifyArrayItemRangeChanged(0, mAdapter.size())
-                        }, 300)
+                        }, 600)
                     }
                 })
         }
