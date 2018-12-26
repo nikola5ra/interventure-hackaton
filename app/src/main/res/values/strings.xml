@@ -21,4 +21,10 @@
     <string name="browse_fragment_header_teams">Teams</string>
     <string name="browse_fragment_header_people">People</string>
     <string name="browse_fragment_header_events">Events</string>
+    <string name="interventure_desc">Is a Swiss IT nearshoring company. We are a team of great co-thinkers challenging the status quo. Every day.
+        Do you as well? In everything we do, we believe in challenging the status quo. We believe in thinking differently.
+        The way we challenge the status quo is by striving every day to be better than the day before.
+        We like to compete with ourselves, not others. We do not rest until we believe in what we do makes perfect sense.
+        We like to be convinced with clever and clean software code. It should be as lean as possible and only as large as required.
+        We like it to be performant and robust. In case it is able to learn and live by itself we have nothing against :) </string>
 </resources>

@@ -18,6 +18,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.os.Handler
 import android.support.v17.leanback.app.DetailsSupportFragment
 import android.support.v17.leanback.app.DetailsSupportFragmentBackgroundController
 import android.support.v17.leanback.widget.*
@@ -29,7 +30,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.GlideDrawable
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
-import hackaton.interventure.com.interventurehackaton.*
+import hackaton.interventure.com.interventurehackaton.ItemData
+import hackaton.interventure.com.interventurehackaton.PlaybackActivity
+import hackaton.interventure.com.interventurehackaton.R
 import hackaton.interventure.com.interventurehackaton.detail.people.PeopleDetailActivity
 import hackaton.interventure.com.interventurehackaton.main.MainActivity
 import hackaton.interventure.com.interventurehackaton.util.GlideUtil
@@ -86,8 +89,10 @@ abstract class DetailsFragment : DetailsSupportFragment() {
                         bitmap: Bitmap,
                         glideAnimation: GlideAnimation<in Bitmap>
                     ) {
-                        mDetailsBackground.coverBitmap = bitmap
-                        mAdapter.notifyArrayItemRangeChanged(0, mAdapter.size())
+                        Handler().postDelayed({
+                            mDetailsBackground.coverBitmap = bitmap
+                            mAdapter.notifyArrayItemRangeChanged(0, mAdapter.size())
+                        }, 300)
                     }
                 })
         }
@@ -97,13 +102,16 @@ abstract class DetailsFragment : DetailsSupportFragment() {
         Log.d(TAG, "doInBackground: " + mSelected?.toString())
         val row = DetailsOverviewRow(mSelected)
         activity?.let { activity ->
-            row.imageDrawable = ContextCompat.getDrawable(activity,
+            row.imageDrawable = ContextCompat.getDrawable(
+                activity,
                 R.drawable.default_background
             )
-            val width = convertDpToPixel(activity,
+            val width = convertDpToPixel(
+                activity,
                 DETAIL_THUMB_WIDTH
             )
-            val height = convertDpToPixel(activity,
+            val height = convertDpToPixel(
+                activity,
                 DETAIL_THUMB_HEIGHT
             )
 
@@ -145,7 +153,8 @@ abstract class DetailsFragment : DetailsSupportFragment() {
         val detailsPresenter = FullWidthDetailsOverviewRowPresenter(DetailsDescriptionPresenter())
         activity?.let {
             detailsPresenter.backgroundColor =
-                    ContextCompat.getColor(it,
+                    ContextCompat.getColor(
+                        it,
                         R.color.selected_background
                     )
         }
