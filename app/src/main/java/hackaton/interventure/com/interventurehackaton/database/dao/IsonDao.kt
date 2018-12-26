@@ -9,4 +9,7 @@ interface IsonDao {
 
     @Query("SELECT * FROM Ison")
     fun getIsons(): List<Ison>
+
+    @Query("SELECT * FROM Ison WHERE faceId = :faceId")
+    fun getIsons(faceId: Int): List<Ison>
 }

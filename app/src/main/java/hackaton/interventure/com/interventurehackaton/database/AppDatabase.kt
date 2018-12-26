@@ -6,10 +6,7 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.migration.Migration
 import android.content.Context
-import hackaton.interventure.com.interventurehackaton.database.dao.EventsDao
-import hackaton.interventure.com.interventurehackaton.database.dao.FaceDao
-import hackaton.interventure.com.interventurehackaton.database.dao.IsonDao
-import hackaton.interventure.com.interventurehackaton.database.dao.TeamDao
+import hackaton.interventure.com.interventurehackaton.database.dao.*
 import hackaton.interventure.com.interventurehackaton.database.entity.*
 import java.io.*
 import java.net.HttpURLConnection
@@ -27,6 +24,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun faceDao(): FaceDao
 
     abstract fun eventsDao(): EventsDao
+
+    abstract fun imageDao(): ImageDao
 
     companion object {
         @JvmField

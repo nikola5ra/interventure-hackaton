@@ -18,21 +18,18 @@ class EventDetailFragment : DetailsFragment() {
     }
 
     override fun setupRelatedListRow() {
-//        val subcategories = arrayOf(getString(R.string.browse_fragment_header_people))
-//        activity?.let { activity ->
-//            val list = AppDatabase.getAppDataBase(activity)?.faceDao()?.getFaces()
-//            val listRowAdapter = ArrayObjectAdapter(CardPresenter())
-//            list?.let {
-//                for (face in it) {
-//                    if (face.id == mSelected?.id) {
-//                        listRowAdapter.add(ItemData(face.id, face.name, face.desc, face.image))
-//                    }
-//                }
-//            }
-//
-//            val header = HeaderItem(0, subcategories[0])
-//            mAdapter.add(ListRow(header, listRowAdapter))
-//            mPresenterSelector.addClassPresenter(ListRow::class.java, ListRowPresenter())
-//        }
+        activity?.let { activity ->
+            val list = AppDatabase.getAppDataBase(activity)?.imageDao()?.getImages(mSelected?.id!!)
+            val listRowAdapter = ArrayObjectAdapter(CardPresenter())
+            list?.let {
+                for (image in it) {
+                    listRowAdapter.add(ItemData(0, image.name, "", image.image))
+                }
+            }
+
+            val header = HeaderItem(0, "Photos")
+            mAdapter.add(ListRow(header, listRowAdapter))
+            mPresenterSelector.addClassPresenter(ListRow::class.java, ListRowPresenter())
+        }
     }
 }
