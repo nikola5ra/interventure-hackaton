@@ -20,7 +20,7 @@ internal class PageRowFragmentFactory internal constructor(
     override fun createFragment(rowObj: Any?): Fragment {
         val row = rowObj as Row
         if (row.headerItem.id == MainFragment.HEADER_INTERVENTURE_ID) {
-            mBackgroundManager.drawable = ContextCompat.getDrawable(context, R.drawable.interventure_background)
+            mBackgroundManager.drawable = context.getDrawable(R.drawable.interventure_background)
         } else {
             mBackgroundManager.drawable = null
         }
