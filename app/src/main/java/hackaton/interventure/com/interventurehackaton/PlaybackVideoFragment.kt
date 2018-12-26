@@ -44,7 +44,7 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         mTransportControlGlue.subtitle = description
         mTransportControlGlue.playWhenPrepared()
 
-        playerAdapter.setDataSource(Uri.parse("http://192.168.0.110:8080/videos/1.mp4"))
+        playerAdapter.setDataSource(Uri.parse(videoUrl))
     }
 
     override fun onPause() {
