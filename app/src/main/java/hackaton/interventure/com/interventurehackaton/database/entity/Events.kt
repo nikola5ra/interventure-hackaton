@@ -10,5 +10,6 @@ data class Events(
     val name: String,
     val thumb: String,
     val desc: String,
-    val background: String
+    val background: String,
+    val videoId: Int
 )
