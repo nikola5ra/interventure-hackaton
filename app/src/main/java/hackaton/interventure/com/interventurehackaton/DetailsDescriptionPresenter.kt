@@ -14,7 +14,9 @@
 
 package hackaton.interventure.com.interventurehackaton
 
+import android.os.Build
 import android.support.v17.leanback.widget.AbstractDetailsDescriptionPresenter
+import android.text.Html
 
 class DetailsDescriptionPresenter : AbstractDetailsDescriptionPresenter() {
 
@@ -22,10 +24,14 @@ class DetailsDescriptionPresenter : AbstractDetailsDescriptionPresenter() {
         viewHolder: AbstractDetailsDescriptionPresenter.ViewHolder,
         item: Any
     ) {
-        val movie = item as Movie
+        val movie = item as ItemData
 
-        viewHolder.title.text = movie.title
-        viewHolder.subtitle.text = movie.studio
-        viewHolder.body.text = movie.description
+        viewHolder.title.text = movie.name
+//        viewHolder.subtitle.text = movie.studio
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            viewHolder.body.text = Html.fromHtml(movie.desc, Html.FROM_HTML_MODE_COMPACT)
+        } else {
+            viewHolder.body.text = Html.fromHtml(movie.desc)
+        }
     }
 }

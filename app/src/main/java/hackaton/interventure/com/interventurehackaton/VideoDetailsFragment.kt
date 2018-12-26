@@ -38,7 +38,7 @@ import java.util.*
  */
 class VideoDetailsFragment : DetailsSupportFragment() {
 
-    private var mSelectedMovie: Movie? = null
+    private var mSelectedMovie: ItemData? = null
 
     private lateinit var mDetailsBackground: DetailsSupportFragmentBackgroundController
     private lateinit var mPresenterSelector: ClassPresenterSelector
@@ -50,7 +50,7 @@ class VideoDetailsFragment : DetailsSupportFragment() {
 
         mDetailsBackground = DetailsSupportFragmentBackgroundController(this)
 
-        mSelectedMovie = activity?.intent?.getSerializableExtra(DetailsActivity.MOVIE) as Movie
+        mSelectedMovie = activity?.intent?.getSerializableExtra(DetailsActivity.ITEM_DATA) as ItemData
         if (mSelectedMovie != null) {
             mPresenterSelector = ClassPresenterSelector()
             mAdapter = ArrayObjectAdapter(mPresenterSelector)
@@ -66,10 +66,10 @@ class VideoDetailsFragment : DetailsSupportFragment() {
         }
     }
 
-    private fun initializeBackground(movie: Movie?) {
+    private fun initializeBackground(itemData: ItemData?) {
         mDetailsBackground.enableParallax()
         Glide.with(activity)
-            .load(movie?.backgroundImageUrl)
+            .load(itemData?.image)
             .asBitmap()
             .centerCrop()
             .error(R.drawable.default_background)
@@ -92,7 +92,7 @@ class VideoDetailsFragment : DetailsSupportFragment() {
             val width = convertDpToPixel(activity, DETAIL_THUMB_WIDTH)
             val height = convertDpToPixel(activity, DETAIL_THUMB_HEIGHT)
             Glide.with(activity)
-                .load(mSelectedMovie?.cardImageUrl)
+                .load(mSelectedMovie?.image)
                 .centerCrop()
                 .error(R.drawable.default_background)
                 .into<SimpleTarget<GlideDrawable>>(object : SimpleTarget<GlideDrawable>(width, height) {
@@ -111,23 +111,9 @@ class VideoDetailsFragment : DetailsSupportFragment() {
 
         actionAdapter.add(
             Action(
-                ACTION_WATCH_TRAILER,
+                ACTION_WATCH,
                 resources.getString(R.string.watch_trailer_1),
-                resources.getString(R.string.watch_trailer_2)
-            )
-        )
-        actionAdapter.add(
-            Action(
-                ACTION_RENT,
-                resources.getString(R.string.rent_1),
-                resources.getString(R.string.rent_2)
-            )
-        )
-        actionAdapter.add(
-            Action(
-                ACTION_BUY,
-                resources.getString(R.string.buy_1),
-                resources.getString(R.string.buy_2)
+                ""
             )
         )
         row.actionsAdapter = actionAdapter
@@ -152,7 +138,7 @@ class VideoDetailsFragment : DetailsSupportFragment() {
         detailsPresenter.isParticipatingEntranceTransition = true
 
         detailsPresenter.onActionClickedListener = OnActionClickedListener { action ->
-            if (action.id == ACTION_WATCH_TRAILER) {
+            if (action.id == ACTION_WATCH) {
                 val intent = Intent(activity, PlaybackActivity::class.java)
                 intent.putExtra(DetailsActivity.MOVIE, mSelectedMovie)
                 startActivity(intent)
@@ -212,7 +198,7 @@ class VideoDetailsFragment : DetailsSupportFragment() {
     companion object {
         private const val TAG = "VideoDetailsFragment"
 
-        private const val ACTION_WATCH_TRAILER = 1L
+        private const val ACTION_WATCH = 1L
         private const val ACTION_RENT = 2L
         private const val ACTION_BUY = 3L
 

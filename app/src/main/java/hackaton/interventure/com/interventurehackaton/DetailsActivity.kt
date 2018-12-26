@@ -14,13 +14,13 @@
 
 package hackaton.interventure.com.interventurehackaton
 
-import android.app.Activity
 import android.os.Bundle
+import android.support.v4.app.FragmentActivity
 
 /**
  * Details activity class that loads [VideoDetailsFragment] class.
  */
-class DetailsActivity : Activity() {
+class DetailsActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +29,7 @@ class DetailsActivity : Activity() {
 
     companion object {
         const val SHARED_ELEMENT_NAME = "hero"
+        const val ITEM_DATA = "itemData"
         const val MOVIE = "Movie"
     }
 }

@@ -6,7 +6,8 @@ class ItemData(
     var id: Int = 0,
     var name: String? = null,
     var desc: String? = null,
-    var image: String? = null
+    var image: String? = null,
+    var background: String? = null
 ) : Serializable {
 
     override fun toString(): String {

@@ -20,7 +20,7 @@ class PeopleFragment: MediaRowsFragment() {
             val adapter = ArrayObjectAdapter(presenterSelector)
             rows?.let {
                 for (row in it) {
-                    val itemData = ItemData(row.id, row.name, row.desc, row.image)
+                    val itemData = ItemData(row.id, row.name, row.desc, row.image, row.image)
                     adapter.add(itemData)
                 }
             }
