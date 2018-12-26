@@ -64,7 +64,7 @@ class CardPresenter : Presenter() {
             cardView.contentText = itemData.desc
             cardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT)
             itemData.image?.let {
-                GlideUtil.loadImage(viewHolder.view.context, it, cardView.mainImageView)
+                GlideUtil.loadImage(viewHolder.view.context, GlideUtil.getImageUrl(it), cardView.mainImageView)
             }
         }
     }
