@@ -20,8 +20,6 @@ import android.support.v17.leanback.widget.Presenter
 import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.ViewGroup
-
-import com.bumptech.glide.Glide
 import hackaton.interventure.com.interventurehackaton.util.GlideUtil
 import kotlin.properties.Delegates
 
@@ -61,7 +59,11 @@ class CardPresenter : Presenter() {
         Log.d(TAG, "onBindViewHolder")
         if (itemData.image != null) {
             cardView.titleText = itemData.name
-            cardView.contentText = itemData.desc
+            itemData.desc?.let {
+                if (!it.startsWith("<")) {
+                    cardView.contentText = itemData.desc
+                }
+            }
             cardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT)
             itemData.image?.let {
                 GlideUtil.loadImage(viewHolder.view.context, GlideUtil.getImageUrl(it), cardView.mainImageView)
