@@ -19,9 +19,10 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import hackaton.interventure.com.interventurehackaton.BrowseErrorActivity
-import hackaton.interventure.com.interventurehackaton.DetailsActivity
+import hackaton.interventure.com.interventurehackaton.detail.DetailsActivity
 import hackaton.interventure.com.interventurehackaton.ItemData
 import hackaton.interventure.com.interventurehackaton.R
+import hackaton.interventure.com.interventurehackaton.util.GlideUtil
 import java.util.*
 
 /**
@@ -38,6 +39,8 @@ abstract class MediaRowsFragment : RowsSupportFragment() {
     private lateinit var mMetrics: DisplayMetrics
 
     abstract fun createRows()
+
+    abstract fun getDetailActivityIntent(): Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,11 +81,7 @@ abstract class MediaRowsFragment : RowsSupportFragment() {
     }
 
     private fun updateBackground(uri: String) {
-        val imageUrl: String = if (uri.startsWith("http")) {
-            uri
-        } else {
-            "http://192.168.0.110:8080/$uri"
-        }
+        val imageUrl = GlideUtil.getImageUrl(uri)
         val width = mMetrics.widthPixels
         val height = mMetrics.heightPixels
         Glide.with(activity)
@@ -123,7 +122,7 @@ abstract class MediaRowsFragment : RowsSupportFragment() {
         ) {
 
             if (item is ItemData) {
-                val intent = Intent(activity, DetailsActivity::class.java)
+                val intent = getDetailActivityIntent()
                 intent.putExtra(DetailsActivity.ITEM_DATA, item)
 
                 val bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(

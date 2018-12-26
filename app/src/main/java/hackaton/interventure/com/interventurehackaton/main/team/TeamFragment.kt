@@ -1,5 +1,6 @@
 package hackaton.interventure.com.interventurehackaton.main.team
 
+import android.content.Intent
 import android.support.v17.leanback.widget.ArrayObjectAdapter
 import android.support.v17.leanback.widget.HeaderItem
 import android.support.v17.leanback.widget.ListRow
@@ -7,10 +8,15 @@ import hackaton.interventure.com.interventurehackaton.CardPresenter
 import hackaton.interventure.com.interventurehackaton.ItemData
 import hackaton.interventure.com.interventurehackaton.R
 import hackaton.interventure.com.interventurehackaton.database.AppDatabase
+import hackaton.interventure.com.interventurehackaton.detail.team.TeamDetailActivity
 import hackaton.interventure.com.interventurehackaton.main.MainFragment.Companion.HEADER_TEAMS_ID
 import hackaton.interventure.com.interventurehackaton.main.MediaRowsFragment
 
 class TeamFragment : MediaRowsFragment() {
+
+    override fun getDetailActivityIntent(): Intent {
+        return Intent(activity, TeamDetailActivity::class.java)
+    }
 
     override fun createRows() {
         activity?.let { activity ->

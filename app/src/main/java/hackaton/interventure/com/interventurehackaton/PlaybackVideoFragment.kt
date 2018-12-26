@@ -21,6 +21,7 @@ import android.support.v17.leanback.app.VideoSupportFragmentGlueHost
 import android.support.v17.leanback.media.MediaPlayerAdapter
 import android.support.v17.leanback.media.PlaybackTransportControlGlue
 import android.support.v17.leanback.widget.PlaybackControlsRow
+import hackaton.interventure.com.interventurehackaton.detail.DetailsActivity
 
 /** Handles video playback with media controls. */
 class PlaybackVideoFragment : VideoSupportFragment() {

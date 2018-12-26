@@ -35,6 +35,8 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import hackaton.interventure.com.interventurehackaton.*
+import hackaton.interventure.com.interventurehackaton.detail.DetailsActivity
+import hackaton.interventure.com.interventurehackaton.detail.team.TeamDetailActivity
 import java.util.*
 
 /**
@@ -138,41 +140,7 @@ class MainFragment : BrowseSupportFragment() {
                 .show()
         }
 
-        onItemViewClickedListener = ItemViewClickedListener()
         onItemViewSelectedListener = ItemViewSelectedListener()
-    }
-
-    private inner class ItemViewClickedListener : OnItemViewClickedListener {
-        override fun onItemClicked(
-            itemViewHolder: Presenter.ViewHolder,
-            item: Any,
-            rowViewHolder: RowPresenter.ViewHolder,
-            row: Row
-        ) {
-
-            if (item is Movie) {
-                Log.d(TAG, "Item: " + item.toString())
-                val intent = Intent(activity, DetailsActivity::class.java)
-                intent.putExtra(DetailsActivity.MOVIE, item)
-
-                activity?.let {
-                    val bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        it,
-                        (itemViewHolder.view as ImageCardView).mainImageView,
-                        DetailsActivity.SHARED_ELEMENT_NAME
-                    )
-                        .toBundle()
-                    it.startActivity(intent, bundle)
-                }
-            } else if (item is String) {
-                if (item.contains(getString(R.string.error_fragment))) {
-                    val intent = Intent(activity, BrowseErrorActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(activity, item, Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
     }
 
     private inner class ItemViewSelectedListener : OnItemViewSelectedListener {

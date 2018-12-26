@@ -12,11 +12,12 @@
  * the License.
  */
 
-package hackaton.interventure.com.interventurehackaton
+package hackaton.interventure.com.interventurehackaton.detail
 
 import android.os.Build
 import android.support.v17.leanback.widget.AbstractDetailsDescriptionPresenter
 import android.text.Html
+import hackaton.interventure.com.interventurehackaton.ItemData
 
 class DetailsDescriptionPresenter : AbstractDetailsDescriptionPresenter() {
 
@@ -24,14 +25,14 @@ class DetailsDescriptionPresenter : AbstractDetailsDescriptionPresenter() {
         viewHolder: AbstractDetailsDescriptionPresenter.ViewHolder,
         item: Any
     ) {
-        val movie = item as ItemData
+        val itemData = item as ItemData
 
-        viewHolder.title.text = movie.name
+        viewHolder.title.text = itemData.name
 //        viewHolder.subtitle.text = movie.studio
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            viewHolder.body.text = Html.fromHtml(movie.desc, Html.FROM_HTML_MODE_COMPACT)
+            viewHolder.body.text = Html.fromHtml(itemData.desc, Html.FROM_HTML_MODE_COMPACT)
         } else {
-            viewHolder.body.text = Html.fromHtml(movie.desc)
+            viewHolder.body.text = Html.fromHtml(itemData.desc)
         }
     }
 }

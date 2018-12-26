@@ -1,5 +1,6 @@
 package hackaton.interventure.com.interventurehackaton.main.events
 
+import android.content.Intent
 import android.support.v17.leanback.widget.ArrayObjectAdapter
 import android.support.v17.leanback.widget.HeaderItem
 import android.support.v17.leanback.widget.ListRow
@@ -7,10 +8,15 @@ import hackaton.interventure.com.interventurehackaton.CardPresenter
 import hackaton.interventure.com.interventurehackaton.ItemData
 import hackaton.interventure.com.interventurehackaton.R
 import hackaton.interventure.com.interventurehackaton.database.AppDatabase
+import hackaton.interventure.com.interventurehackaton.detail.events.EventDetailActivity
 import hackaton.interventure.com.interventurehackaton.main.MainFragment
 import hackaton.interventure.com.interventurehackaton.main.MediaRowsFragment
 
-class EventsFragment: MediaRowsFragment() {
+class EventsFragment : MediaRowsFragment() {
+
+    override fun getDetailActivityIntent(): Intent {
+        return Intent(activity, EventDetailActivity::class.java)
+    }
 
     override fun createRows() {
         activity?.let { activity ->

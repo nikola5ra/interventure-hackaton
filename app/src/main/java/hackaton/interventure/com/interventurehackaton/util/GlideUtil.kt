@@ -9,15 +9,19 @@ import hackaton.interventure.com.interventurehackaton.R
 object GlideUtil {
 
     fun loadImage(context: Context, url: String, imageView: ImageView) {
-        val imageUrl: String = if (url.startsWith("http")) {
-            url
-        } else {
-            "http://192.168.0.110:8080/$url"
-        }
+        val imageUrl: String = getImageUrl(url)
         Glide.with(context)
             .load(imageUrl)
             .centerCrop()
             .error(ContextCompat.getDrawable(context, R.drawable.movie))
             .into(imageView)
+    }
+
+    fun getImageUrl(url: String): String {
+        return if (url.startsWith("http")) {
+            url
+        } else {
+            "http://192.168.0.110:8080/$url"
+        }
     }
 }

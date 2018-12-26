@@ -12,20 +12,14 @@
  * the License.
  */
 
-package hackaton.interventure.com.interventurehackaton
+package hackaton.interventure.com.interventurehackaton.detail
 
-import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 
 /**
- * Details activity class that loads [VideoDetailsFragment] class.
+ * Details activity class that loads [DetailsFragment] class.
  */
-class DetailsActivity : FragmentActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_details)
-    }
+abstract class DetailsActivity : FragmentActivity() {
 
     companion object {
         const val SHARED_ELEMENT_NAME = "hero"
