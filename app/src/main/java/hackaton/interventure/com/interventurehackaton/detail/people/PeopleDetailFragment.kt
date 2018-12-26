@@ -1,6 +1,7 @@
 package hackaton.interventure.com.interventurehackaton.detail.people
 
 import android.content.Intent
+import android.net.Uri
 import android.support.v17.leanback.widget.ArrayObjectAdapter
 import android.support.v17.leanback.widget.HeaderItem
 import android.support.v17.leanback.widget.ListRow
