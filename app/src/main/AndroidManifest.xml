@@ -36,6 +36,7 @@
         <activity android:name=".detail.people.PeopleDetailActivity"/>
         <activity android:name=".PlaybackActivity"/>
         <activity android:name=".BrowseErrorActivity"/>
+        <activity android:name=".detail.video.VideoDetailActivity"/>
     </application>
 
 </manifest>
