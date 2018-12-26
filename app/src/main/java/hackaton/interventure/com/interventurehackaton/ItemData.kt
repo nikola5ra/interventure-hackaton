@@ -17,6 +17,7 @@ data class ItemData(
                 ", name='" + name + '\'' +
                 ", desc='" + desc + '\'' +
                 ", cardImageUrl='" + image + '\'' +
+                ", videoUrl='" + videoUrl + '\'' +
                 '}'
     }
 

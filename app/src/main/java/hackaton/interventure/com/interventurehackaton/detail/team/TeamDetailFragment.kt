@@ -21,13 +21,13 @@ class TeamDetailFragment : DetailsFragment() {
     override fun setupRelatedListRow() {
         val subcategories = arrayOf(getString(R.string.browse_fragment_header_people))
         activity?.let { activity ->
-            val list = AppDatabase.getAppDataBase(activity)?.faceDao()?.getFaces()
+            val list = AppDatabase.getAppDataBase(activity)?.faceDao()?.getFaces(mSelected!!.id)
             val listRowAdapter = ArrayObjectAdapter(CardPresenter())
             list?.let {
                 for (face in it) {
-                    if (face.id == mSelected?.id) {
+
                         listRowAdapter.add(ItemData(face.id, face.name, face.desc, face.image))
-                    }
+
                 }
             }
 

@@ -9,4 +9,7 @@ interface FaceDao {
 
     @Query("SELECT * FROM Face")
     fun getFaces(): List<Face>
+
+    @Query("SELECT * FROM Face WHERE teamId=:teamId")
+    fun getFaces(teamId:Int): List<Face>
 }
