@@ -6,7 +6,10 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.migration.Migration
 import android.content.Context
+import hackaton.interventure.com.interventurehackaton.database.dao.EventsDao
+import hackaton.interventure.com.interventurehackaton.database.dao.FaceDao
 import hackaton.interventure.com.interventurehackaton.database.dao.IsonDao
+import hackaton.interventure.com.interventurehackaton.database.dao.TeamDao
 import hackaton.interventure.com.interventurehackaton.database.entity.*
 import java.io.File
 import java.io.FileOutputStream
@@ -15,6 +18,12 @@ import java.io.FileOutputStream
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun isonDao(): IsonDao
+
+    abstract fun teamsDao(): TeamDao
+
+    abstract fun faceDao(): FaceDao
+
+    abstract fun eventsDao(): EventsDao
 
     companion object {
         @JvmField
@@ -33,6 +42,7 @@ abstract class AppDatabase : RoomDatabase() {
                     installDatabaseFromAssets(context)
                     INSTANCE = Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
                         .addMigrations(MIGRATION_1_2)
+                        .allowMainThreadQueries()
                         .build()
                 }
             }
@@ -45,7 +55,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun installDatabaseFromAssets(context: Context) {
             val dbPath = context.getDatabasePath(DATABASE_NAME)
-            if (dbPath.exists()) return
+//            if (dbPath.exists()) return
             dbPath.parentFile.mkdirs()
 
             try {
