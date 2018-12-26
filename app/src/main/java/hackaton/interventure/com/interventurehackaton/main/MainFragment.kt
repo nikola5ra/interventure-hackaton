@@ -132,6 +132,12 @@ class MainFragment : BrowseSupportFragment() {
         )
         val pageRowEvents = PageRow(headerItemEvents)
         mRowsAdapter.add(pageRowEvents)
+
+        val videoItemEvents = HeaderItem(
+            HEADER_VIDEOS_ID,"Videos"
+        )
+        val pageRowVideos = PageRow(videoItemEvents)
+        mRowsAdapter.add(pageRowVideos)
     }
 
     private fun setupEventListeners() {
@@ -168,5 +174,6 @@ class MainFragment : BrowseSupportFragment() {
         const val HEADER_TEAMS_ID = 2L
         const val HEADER_PEOPLE_ID = 3L
         const val HEADER_EVENTS_ID = 4L
+        const val HEADER_VIDEOS_ID = 5L
     }
 }
