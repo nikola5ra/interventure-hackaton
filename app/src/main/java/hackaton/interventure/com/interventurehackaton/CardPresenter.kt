@@ -22,6 +22,7 @@ import android.util.Log
 import android.view.ViewGroup
 
 import com.bumptech.glide.Glide
+import hackaton.interventure.com.interventurehackaton.util.GlideUtil
 import kotlin.properties.Delegates
 
 /**
@@ -54,19 +55,17 @@ class CardPresenter : Presenter() {
     }
 
     override fun onBindViewHolder(viewHolder: Presenter.ViewHolder, item: Any) {
-        val movie = item as Movie
+        val itemData = item as ItemData
         val cardView = viewHolder.view as ImageCardView
 
         Log.d(TAG, "onBindViewHolder")
-        if (movie.cardImageUrl != null) {
-            cardView.titleText = movie.title
-            cardView.contentText = movie.studio
+        if (itemData.image != null) {
+            cardView.titleText = itemData.name
+            cardView.contentText = itemData.desc
             cardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT)
-            Glide.with(viewHolder.view.context)
-                .load(movie.cardImageUrl)
-                .centerCrop()
-                .error(mDefaultCardImage)
-                .into(cardView.mainImageView)
+            itemData.image?.let {
+                GlideUtil.loadImage(viewHolder.view.context, it, cardView.mainImageView)
+            }
         }
     }
 
