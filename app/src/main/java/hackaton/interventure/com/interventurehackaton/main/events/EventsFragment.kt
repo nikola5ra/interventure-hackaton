@@ -26,7 +26,7 @@ class EventsFragment : MediaRowsFragment() {
             val adapter = ArrayObjectAdapter(presenterSelector)
             rows?.let {
                 for (row in it) {
-                    val itemData = ItemData(row.id, row.name, row.desc, row.thumb, row.background, "http://192.168.0.110:8080/videos/" + row.videoId + ".mp4");
+                    val itemData = ItemData(row.id, row.name, row.desc, row.thumb, row.background, "http://192.168.0.110:8080/videos/" + (if (row.videoId != 0) row.videoId else 1) + ".mp4");
                     adapter.add(itemData)
                 }
             }

@@ -26,7 +26,7 @@ class VideoFragment : MediaRowsFragment() {
             val adapter = ArrayObjectAdapter(presenterSelector)
             rows?.let {
                 for (row in it) {
-                    val itemData = ItemData(row.id, row.name, row.desc, row.thumb, row.thumb)
+                    val itemData = ItemData(row.id, row.name, row.desc, row.thumb, row.thumb, "http://192.168.0.110:8080/" + row.url)
                     adapter.add(itemData)
                 }
             }
