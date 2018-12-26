@@ -13,7 +13,7 @@
     <application
             android:name=".HackatonApp"
             android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/logo"
             android:label="@string/app_name"
             android:supportsRtl="true"
             android:networkSecurityConfig="@xml/network_security_config"
@@ -36,6 +36,7 @@
         <activity android:name=".detail.people.PeopleDetailActivity"/>
         <activity android:name=".PlaybackActivity"/>
         <activity android:name=".BrowseErrorActivity"/>
+        <activity android:name=".detail.video.VideoDetailActivity"/>
     </application>
 
 </manifest>
